@@ -7,16 +7,19 @@
 
 /* Auth */
 .ausbg {
-  background: linear-gradient(to right, #141e30, #243855);
+  /* background: linear-gradient(to right, #141e30, #243855); */
+  background-color: #111111;
 
 }
-.herobg{
-    background: linear-gradient(to right, #0000006e, #00000071);
+
+.herobg {
+  background: linear-gradient(to right, #0000006e, #00000071);
 
 }
+
 .ausinputhover {
   position: relative;
-  
+
 }
 
 .ausinputhover::before {
@@ -209,18 +212,20 @@
   animation: ff forwards 0.6s;
   transition: 0.7s;
 }
-.ewew:hover:after{
-    width: 200%;
-    height: 200%;
+
+.ewew:hover:after {
+  width: 200%;
+  height: 200%;
 }
 
 /* NAV */
 
-.lihover{
+.lihover {
   position: relative;
   padding: 0px 5px;
 }
-.lihover::after{
+
+.lihover::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -230,31 +235,182 @@
   height: 1px;
   background-color: white;
   transition: 0.3s;
-  
+
 
 }
 
-.lihover:hover::after{
-width: 100%;
+.lihover:hover::after {
+  width: 100%;
 }
 
 
-.bgcategore{
+.bgcategore {
 
-background-color: rgba(255, 255, 255, 0.075);
-backdrop-filter: saturate(180%) blur(50px); 
-width: 200px;
-padding: 20px;
-border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.747);
+  backdrop-filter: blur(40px);
+  width: 200px;
+  padding: 20px;
+  border-radius: 10px;
 }
+
 .bgcategore ul li:not(:last-child) {
   border-bottom: 1px rgba(255, 255, 255, 0.178) solid;
   margin-bottom: 10px;
- 
+
 }
-.bgcategore ul li{
+
+.bgcategore ul li {
   padding: 5px;
   padding-bottom: 0px;
 }
 
+.bgnav {
+  backdrop-filter: blur(10px);
+}
+
 /* NAV */
+
+
+/* .pos {
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.pro::before {
+  content: "";
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  /* background-color: red; */
+
+  top: 28%;
+  left: -17px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 10px 0 0 #111111;
+}
+
+.pro::after {
+  content: "";
+  position: absolute;
+  border: 1px solid transparent;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  top: 28%;
+  right: -17px;
+  border-bottom-left-radius: 20px;
+
+  box-shadow: 0px 10px 0 0 #111111;
+}
+
+.bge {
+  /* color: #ff0000; */
+  background-color: rgba(128, 128, 128, 0.219);
+}
+
+
+
+
+
+
+/* From Uiverse.io by Cksunandh */ 
+.tv-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tv-screen {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: black;
+  border: 10px solid #333;
+  border-radius: 10px;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    #000,
+    #000 1px,
+    #111 1px,
+    #fff 1px,
+    #333 2px
+  );
+  animation: flicker 0.1s steps(20) infinite;
+  z-index: 1;
+}
+
+.error-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px black;
+  z-index: 2;
+  animation: glitch 0.5s infinite;
+}
+
+.tv-stand {
+  width: 150px;
+  height: 10px;
+  background: #333;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.8;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.01);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scaleY(0.99);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(-50%, -50%) skewX(5deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translate(-50%, -50%) skewX(-5deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) skewX(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, -50%) skewX(-5deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) skewX(5deg);
+    opacity: 0.9;
+  }
+}

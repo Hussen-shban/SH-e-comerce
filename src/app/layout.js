@@ -1,13 +1,10 @@
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ReactQueryProvider } from "./ReactqueryProvider/ReactqueryProvider";
+import { ReactQueryProvider } from "./Reactquery/ReactqueryProvider";
 import Nav from "./components/Nav";
 
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata = {
   title: "Create Next App",
@@ -19,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="font-inter" >
         <ReactQueryProvider>
-          <Nav/>
+        
           {children}
 
         </ReactQueryProvider>

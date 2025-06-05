@@ -147,7 +147,7 @@ const SignUp = () => {
                 max-sm:h-[75%] max-sm:w-full 
                 
                 `}>
-                <h1 className="text-[42px] px-5 text-center text-[#141e30] font-semibold  pb-5 
+                <h1 className="text-[42px] px-5 text-center text-[#111111] font-semibold  pb-5 
                      max-sm:text-3xl max-sm:pb-6
                       [@media(max-height:700px)]:hidden
 
@@ -178,7 +178,7 @@ const SignUp = () => {
                     <label htmlFor="name" className={`flex items-center bg-[#f3f3f3] px-[15px] py-[12px] w-full  ${focused.name && "ausinputhover"} `}>
 
                         <div>
-                            <PERSON />
+                            <PERSON className=" text-[#8A8686]" />
 
                         </div>
 

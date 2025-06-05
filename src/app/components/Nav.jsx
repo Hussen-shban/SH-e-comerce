@@ -1,14 +1,24 @@
 "use client"
 import Image from "next/image"
 import { LOGOBLACK } from "../assets/img"
-import { ARROWNAV, CART, EMAIL, EMAILWHITE, MENU, SEARCH } from "../../../public/svg/svg"
+import { ARROWNAV, CART, EMAIL, EMAILWHITE, MENU, PERSON, SEARCH, XMARK } from "../../../public/svg/svg"
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const Nav = () => {
     const [open, setopen] = useState(false)
+    const [openmenu, setopenmenu] = useState(false)
     const Categoreref = useRef(null)
+    const de = useRef(null)
+    const navref = useRef(null)
+    const nav1ref = useRef(null)
+    const menuref = useRef(null)
+
     const arrowref = useRef(null)
+    const router = useRouter
+
 
 
     function handleopen() {
@@ -42,7 +52,7 @@ const Nav = () => {
             })
             setopen(true)
         }
-        else {
+        else if (open) {
             gsap.fromTo(
                 Categoreref.current,
 
@@ -72,31 +82,134 @@ const Nav = () => {
         }
     }
 
+    function handleopenmenu() {
+        const isOpening = !openmenu;
+        setopenmenu(isOpening);
+
+        gsap.killTweensOf(menuref.current); // 💡 يمنع تراكب الأنيميشنات
+
+        if (isOpening) {
+            gsap.fromTo(
+                menuref.current,
+                {
+                    width: "0px",
+                    height: "0px",
+                },
+                {
+                    width: "2500px",
+                    height: "2500px",
+                    duration: 1.2,
+                    ease: "power2.out",
+                }
+            );
+
+            gsap.fromTo(
+                de.current,
+                {
+                    display: "none",
+                    opacity: 0,
+                },
+                {
+                    display: "flex",
+                    opacity: 1,
+                    delay: 0.7
+
+                }
+            );
+        } else {
+            gsap.fromTo(
+                menuref.current,
+                {
+                    width: "1500px",
+                    height: "1500px",
+                },
+                {
+                    width: "0px",
+                    height: "0px",
+                    duration: 0.7,
+                    ease: "power2.out"
+                }
+            );
+
+
+            gsap.fromTo(
+                de.current,
+                {
+                    display: "flex",
+                    opacity: 1,
+                },
+                {
+                    opacity: 0,
+                    display: "none",
+                    duration: 0.2
+
+
+                }
+            );
+        }
+    }
+
+
+    useEffect(() => {
+
+        gsap.fromTo(
+            navref.current,
+            {
+                y: "-100px"
+            },
+            {
+                y: "0px",
+                delay: 0.5
+            })
+
+        gsap.fromTo(
+            nav1ref.current,
+            {
+                y: "-100px"
+            },
+            {
+                y: "0px",
+                delay: 0.5
+            })
+
+
+    }, [])
+
+
+
+    console.log(openmenu)
+
 
 
     return (
         <div>
 
-            <nav className="max-lg:hidden fixed z-30 flex gap-3 items-center justify-between py-[10px] px-[50px] w-full h-[90px]  ">
+            <nav
+                ref={navref}
+                className="max-lg:hidden bgnav fixed z-30 flex gap-3 items-center justify-between py-[10px] px-[50px] w-full h-[90px]
+                translate-y-[-100px]
+                ">
 
+                <Link href="/">
+                    <Image
+                        src={LOGOBLACK}
+                        width={70}
+                        height={70}
+                        alt="LOGO"
+                        className=" rounded-[20px] bg-white cursor-pointer"
+                    />
+                </Link>
 
-                <Image
-                    src={LOGOBLACK}
-                    width={70}
-                    height={70}
-                    alt="LOGO"
-                    className=" rounded-[20px] bg-white cursor-pointer"
-                />
 
                 <div>
                     <ul className=" relative flex items-center justify-center gap-10 text-white text-[22px] font-[200]">
                         <li onClick={handleopen} className=" flex items-center justify-center gap-3 cursor-pointer ">Categore
                             <div ref={arrowref} className=" " >
                                 <ARROWNAV />
-                                {/* rotate-180 */}
+
                             </div>
 
-                            <div ref={Categoreref} className=" absolute left-[-20px] translate-y-[-105%] bgcategore ">
+                            <div ref={Categoreref} onClick={(e) => e.stopPropagation()} className=" absolute left-[-20px] translate-y-[-105%] bgcategore  ">
                                 <ul>
                                     <li>test1</li>
                                     <li >test2</li>
@@ -129,22 +242,22 @@ const Nav = () => {
 
 
 
-                    <div className="cursor-pointer bg-white flex items-center justify-center gap-2 p-1 pl-2 pr-5 rounded-full">
+                    <Link href="/auth" className="cursor-pointer bg-white flex items-center justify-center gap-2 p-1 pl-2 pr-5 rounded-full">
                         <div className="bg-black rounded-full p-3">
-                            <EMAILWHITE />
+                            <PERSON className=" text-white" />
                         </div>
                         <p>
-                            Contact
+                            Profile
                         </p>
 
-                    </div>
+                    </Link>
 
                 </div>
 
             </nav>
 
-            <nav className="lg:hidden fixed z-30 flex gap-3 items-center justify-between py-[0px] px-[50px]  w-full h-[90px]
-            max-lg:px-[10px] max-sm:h-[80px]
+            <nav ref={nav1ref} className="lg:hidden bgnav fixed z-30 flex gap-3 items-center justify-between py-[0px] px-[50px]  w-full h-[90px]
+            max-lg:px-[10px] max-sm:h-[80px]  translate-y-[-100px]
             ">
                 <Image
                     src={LOGOBLACK}
@@ -165,8 +278,51 @@ const Nav = () => {
                         <CART />
                     </div>
 
-                    <div className="cursor-pointer border-white border-[1px] rounded-full p-3">
-                        <MENU/>
+
+                    <div
+
+                        className="cursor-pointer border-white border-[1px] z rounded-full p-3 relative">
+                        {
+                            !openmenu ?
+                                <MENU onClick={handleopenmenu} />
+                                :
+                                <XMARK onClick={handleopenmenu} />
+
+
+                        }
+
+
+
+                        <div ref={menuref} className="  rounded-full z-[-2] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  bg-[#111111]   " >
+
+                        </div>
+
+                        <div ref={de} className="text-white w-[100vw] h-[100vh] absolute  z[-1]
+                          top-0 right-[-11px]
+                         max-sm:mt-[80px] hidden  justify-center    mt-[90px]
+                         ">
+                            <div className=" relative left-[11px]">
+
+                                <ul>
+                                    <li>
+                                        Categore
+                                    </li>
+
+                                    <li>
+                                        Sale
+                                    </li>
+
+                                    <li>
+                                        About
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+
                     </div>
 
 

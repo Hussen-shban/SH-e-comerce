@@ -121,7 +121,6 @@ const SignIn = () => {
                     await sendPasswordResetEmail(auth, email);
                 } catch (error) {
                     console.error("Reset error:", error);
-                    // ✅ هذا يُظهر رسالة الخطأ داخل التنبيه نفسه
                     Swal.showValidationMessage("An error occurred. Please check the email address.");
                 }
             }
@@ -173,7 +172,7 @@ const SignIn = () => {
             <div className={` ${!move ? "move1" : "move3"} ${move ? "hidden-move" : ""} w-[60%] flex flex-col items-center justify-center overflow-hidden max-sm:overflow-y-scroll 
                 max-sm:h-[75%] max-sm:w-full 
                 `}>
-                <h1 className="text-[42px] text-[#141e30] font-semibold pb-5 max-sm:pt-0 
+                <h1 className="text-[42px] text-[#111111] font-semibold pb-5 max-sm:pt-0 
                      max-sm:text-3xl max-sm:pb-5
                      [@media(max-height:700px)]:hidden
                     ">Sign in </h1>

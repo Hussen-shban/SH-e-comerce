@@ -9,7 +9,10 @@ import hero7 from "./pexels-rafs-7163729.jpg"
 import hero8 from "./pexels-dima-valkov-1186343-3266703.jpg"
 import LOGOBLACK from "./ChatGPT Image May 28, 2025, 04_11_03 PM.png"
 import LOGOWHITE from "./ChatGPT Image May 28, 2025, 05_18_30 PM.png"
+import people1 from "./people01.png"
+import people2 from "./people02.png"
+import people3 from "./people03.png"
 
 
 
-export {hero1 ,hero2 ,hero3 ,hero4 ,hero5 ,hero6 ,hero7,hero8 ,LOGOBLACK,LOGOWHITE} 
+export { hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, LOGOBLACK, LOGOWHITE, people1, people2, people3 } 

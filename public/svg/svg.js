@@ -12,4 +12,7 @@ import EMAILWHITE from "./ic--round-email.svg"
 import ARROWNAV from "./ep--arrow-up.svg"
 import XMARK from "./heroicons--x-mark-20-solid.svg"
 import MENU from "./material-symbols--menu-rounded.svg"
-export { FacebookIcon ,ARROW ,GOOGLE,LINKEDIN ,EMAIL ,LOCK ,PERSON ,SEARCH ,CART ,EMAILWHITE ,ARROWNAV,XMARK ,MENU}
+import CART1 from "./streamline--shopping-cart-basket-2-shopping-basket.svg"
+import HEART from "./heart.svg"
+import  QUOTES from "./quotes.svg"
+export { FacebookIcon ,ARROW ,GOOGLE,LINKEDIN ,EMAIL ,LOCK ,PERSON ,SEARCH ,CART ,EMAILWHITE ,ARROWNAV,XMARK ,MENU ,CART1 ,HEART ,QUOTES} 
