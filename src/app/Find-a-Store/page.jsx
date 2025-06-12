@@ -3,8 +3,8 @@ import { useEffect, useState, useRef } from "react";
 
 import 'leaflet/dist/leaflet.css';
 import Nav from "../components/Nav";
-export default async function Contact() {
-await new Promise((resolve) => setTimeout(resolve, 3000));
+export default  function Contact() {
+
     // State for form inputs
     const [input, setInput] = useState({
         name: "",
