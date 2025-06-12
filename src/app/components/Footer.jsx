@@ -5,13 +5,13 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Footer() {
 
-        useEffect(() => {
-    
-            Aos.init({
-                duration: 800,
-            })
-    
-        }, [])
+    useEffect(() => {
+
+        Aos.init({
+            duration: 800,
+        })
+
+    }, [])
     const area1 = [
         "Evening Dresses",
         "Tops & Blouses",
@@ -35,11 +35,11 @@ export default function Footer() {
     ];
 
     const l1 = area1.map((item, index) => (
-        <li key={index} className="text-[#ffffff7e]  mb-[8px]">{item}</li>
+        <li key={index} className="text-[#ffffff7e]  mb-[8px] hover:translate-x-3 hover:text-white transition-all cursor-pointer">{item}</li>
     ));
 
     const l2 = area2.map((item, index) => (
-        <li key={index} className="text-[#ffffff7e] mb-[8px]">{item}</li>
+        <li key={index} className="text-[#ffffff7e] mb-[8px]  hover:translate-x-3 hover:text-white transition-all cursor-pointer">{item}</li>
     ));
 
     const [loading, setloading] = useState(false);
@@ -65,18 +65,18 @@ export default function Footer() {
 
     return (
         <footer className="bg-blacko er max-md:pt-[80px] md:min-h-[calc(100vh-100px)] md:pt-[100px] max-sm:pt-[100px] max-sm:min-h-[100vh] overflow-hidden">
-            <div  data-aos="fade-up" className="
+            <div data-aos="fade-up" className="
             
             bg-[#3f3b3b] pt-[40px] flex items-end justify-between px-10 mb-32 h-[400px]
              max-sm:px-4  max-sm:h-full max-sm:block 
             ">
-                <div  className="pb-20 max-sm:pb-0">
+                <div className="pb-20 max-sm:pb-0">
                     <p className="text-white text-[1rem] font-[300] mb-[8px] max-sm:text-[16px] ">$20 discount for your first order</p>
                     <p className="text-white text-[26px] font-[600] mb-[15px] max-sm:text-[24px]">Join our newsletter and get...</p>
                     <p className="text-[#ffffff8a] w-[330px] text-[14px] font-[400] mb-[16px] max-sm:w-full max-sm:text-[12px]">
                         Join our email subscription now to get updates on promotions and coupons.
                     </p>
-                    <form   onSubmit={handleloading}>
+                    <form onSubmit={handleloading}>
                         <div className="px-5 py-4 flex items-center justify-center bg-[#ffffff13] rounded-[5px]
                          max-sm:px-3  max-sm:py-4
                         ">
@@ -118,22 +118,22 @@ export default function Footer() {
             </div>
 
             <div className="bop pb-16 px-24 max-sm:px-3 max-sm:gap-10 flex items-cente justify-between flex-wrap gap-20">
-                <ul  data-aos="fade-up">
+                <ul data-aos="fade-up">
                     <p className="pb-5 text-white text-[22px]">women's clothing</p>
                     {l1}
                 </ul>
 
-                <ul  data-aos="fade-up">
+                <ul data-aos="fade-up">
                     <p className="pb-5 text-white text-[22px]">men's clothing</p>
                     {l2}
                 </ul>
 
-                <ul  data-aos="fade-up">
+                <ul data-aos="fade-up">
                     <p className="pb-5 text-white text-[22px]"> jewelery</p>
                     {l1}
                 </ul>
 
-                <ul  data-aos="fade-up">
+                <ul data-aos="fade-up">
                     <p className="pb-5 text-white text-[22px]">men's clothing</p>
                     {l2}
                 </ul>
@@ -171,6 +171,7 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
+            
         </footer>
     );
 }

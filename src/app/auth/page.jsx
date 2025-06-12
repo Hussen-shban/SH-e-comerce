@@ -8,10 +8,10 @@ const Auth = () => {
         <div className=" relative flex items-center justify-center sm:h-screen bg-gray-100
                         max-sm:min-h-[100vh] 
         ">
-            <MoveProvider>
+          
                 <SignIn />
                 <SignUp />
-            </MoveProvider>
+            
 
 
         </div>

@@ -166,15 +166,14 @@ const SignIn = () => {
         <div className={` ${!move ? "inde1" : ""}  absolute   ausshadow  flex sm:h-[85%]  h-[90%] items-center justify-center  w-[70%]   bg-white rounded-md overflow-hidded
             max-lg:w-[95%]
             max-sm:flex-col-reverse 
-             [@media(max-height:700px)]:h-[100%] [@media(max-height:700px)]:w-[100%]
             
             `}>
-            <div className={` ${!move ? "move1" : "move3"} ${move ? "hidden-move" : ""} w-[60%] flex flex-col items-center justify-center overflow-hidden max-sm:overflow-y-scroll 
+            <div className={` ${!move ? "move1" : "move3"} ${move ? "hidden-move" : ""} w-[60%] flex flex-col items-center justify-center overflow-hidden max-sm:overflow-y-auto 
                 max-sm:h-[75%] max-sm:w-full 
                 `}>
                 <h1 className="text-[42px] text-[#111111] font-semibold pb-5 max-sm:pt-0 
                      max-sm:text-3xl max-sm:pb-5
-                     [@media(max-height:700px)]:hidden
+                     hide-on-small-height 
                     ">Sign in </h1>
                 <div className="flex items-center gap-5  pb-5 ">
                     <div className="rounded-full border-[1px] overflow-hidden ewew relative p-2 border-gray-300 cursor-pointer">
@@ -268,7 +267,7 @@ const SignIn = () => {
 
             </div>
 
-            <div className={`${!move ? "move2" : "move4"} ${move ? "hidden-move" : ""} overflow-hidden max-sm:overflow-y-scroll  py-5 w-[40%] h-[100%] text-white ausbg flex flex-col items-center justify-center px-5 
+            <div className={`${!move ? "move2" : "move4"} ${move ? "hidden-move" : ""} overflow-hidden max-sm:overflow-y-auto  py-5 w-[40%] h-[100%] text-white ausbg flex flex-col items-center justify-center px-5 
                 max-sm:h-[25%] max-sm:w-full
                 `}>
                 <h1 className=" pb-7 text-center text-5xl font-semibold

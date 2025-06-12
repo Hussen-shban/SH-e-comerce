@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import { ARROW } from "../../../public/svg/svg"
 import { Typewriter } from "react-simple-typewriter"
+import { Link } from "react-scroll"
 
 const Hero = () => {
 
@@ -213,7 +214,7 @@ const Hero = () => {
             },
             {
                 y: "0px",
-                delay:0.5
+                delay: 0.5
             })
 
 
@@ -330,14 +331,21 @@ const Hero = () => {
                     <p className="max-w-[800px] max-lg:hidden font-[200] ">
                         exercitationem. Recusandae nam fuga impedit ipsa necessitatibus. Perferendis consequuntur est maiores?
                     </p>
-                    <div className="flex">
-                        <button className="bg-white w-[150px] h-[50px] rounded-3xl text-black text-[14px] font-semibold
+                    <Link
+                        to="category"
+                        smooth={true}
+                        duration={100}
+                    >
+
+                        <div className="flex">
+                            <button className="bg-white w-[150px] h-[50px] rounded-3xl text-black text-[14px] font-semibold
                         max-sm:w-[130px] max-sm:h-[40px] max-sm:text-[12px]
                         ">EXPLORE MORE</button>
-                        <button className="w-[50px] h-[50px] rounded-full bg-white relative right-1 rotate-[90deg] flex items-center justify-center
+                            <button className="w-[50px] h-[50px] rounded-full bg-white relative right-1 rotate-[90deg] flex items-center justify-center
                         max-sm:w-[40px] max-sm:h-[40px]
                         "><ARROW /></button>
-                    </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </section>

@@ -60,14 +60,19 @@ const SignUp = () => {
         })
             .then(res => res.data),
         onSuccess: (data) => {
-            console.log('تم التسجيل بنجاح', data);
-            setdataauth({
-                username: "",
-                password: "",
-                email: "",
-            })
-            localStorage.setItem("userdata", JSON.stringify(data));
-            router.replace("/")
+
+            // setdataauth({
+            //     username: "",
+            //     password: "",
+            //     email: "",
+            // })
+            localStorage.setItem(
+                "userdata",
+                JSON.stringify({
+                    ...data,
+                   name:dataauth.username
+                })
+            ); router.replace("/")
 
         },
         onError: (error) => {
@@ -92,7 +97,7 @@ const SignUp = () => {
     const provider = new GoogleAuthProvider();
     const handleGoogleSignIn = async () => {
         setLoadingGoogle(true);
-         try {
+        try {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
@@ -110,7 +115,7 @@ const SignUp = () => {
 
         }
         finally {
-             setLoadingGoogle(false);
+            setLoadingGoogle(false);
         }
     };
     // GOOGLEAUTH
@@ -136,20 +141,20 @@ const SignUp = () => {
     return (
 
 
-        <div className={`${move ? "inde2" : ""} absolute  ausshadow  flex sm:h-[85%]  h-[90%] items-center justify-center  w-[70%]   bg-white rounded-md overflow-hidden 
+        <div className={`${move ? "inde2" : ""} absolute  ausshadow  flex sm:h-[85%]  h-[90%] items-center justify-center  lg:w-[70%]   bg-white rounded-md overflow-hidden 
             max-lg:w-[95%]
             max-sm:flex-col-reverse 
-            [@media(max-height:700px)]:h-[100%] [@media(max-height:700px)]:w-[100%]
+           
 
             
             `}>
-            <div className={` ${move ? "move3" : "move1"} ${!move ? "hidden-move" : ""} flex-shrink-0 w-[60%] flex flex-col items-center justify-center overflow-hidden max-sm:overflow-y-scroll o
+            <div className={` ${move ? "move3" : "move1"} ${!move ? "hidden-move" : ""} flex-shrink-0 w-[60%] flex flex-col items-center justify-center overflow-hidden max-sm:overflow-y-auto 
                 max-sm:h-[75%] max-sm:w-full 
                 
                 `}>
                 <h1 className="text-[42px] px-5 text-center text-[#111111] font-semibold  pb-5 
                      max-sm:text-3xl max-sm:pb-6
-                      [@media(max-height:700px)]:hidden
+                      hide-on-small-height
 
                     ">Create Account </h1>
                 <div className="flex items-center gap-5  pb-5 ">
@@ -160,9 +165,9 @@ const SignUp = () => {
                     <div
                         onClick={handleGoogleSignIn}
                         className="rounded-full border-[1px] overflow-hidden ewew relative p-2 border-gray-300 cursor-pointer">
-                     { loadingGoogle ?
+                        {loadingGoogle ?
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#141e30" strokeDasharray="16" strokeDashoffset="16" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3c4.97 0 9 4.03 9 9"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="16;0" /><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" /></path></svg>
-                     : <GOOGLE />}
+                            : <GOOGLE />}
 
                     </div>
                     <div className="rounded-full border-[1px] overflow-hidden ewew relative p-2 border-gray-300 cursor-pointer">
@@ -265,7 +270,7 @@ const SignUp = () => {
 
             </div>
 
-            <div className={` ${move ? "move4" : "move1"} ${!move ? "hidden-move" : ""} overflow-hidden max-sm:overflow-y-scroll  py-5 w-[40%] h-[100%] text-white ausbg flex flex-col items-center justify-center px-5 
+            <div className={` ${move ? "move4" : "move1"} ${!move ? "hidden-move" : ""} overflow-hidden max-sm:overflow-y-auto  py-5 w-[40%] h-[100%] text-white ausbg flex flex-col items-center justify-center px-5 
                 max-sm:h-[25%]  max-sm:w-full 
 
                 `}>

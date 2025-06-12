@@ -12,7 +12,7 @@ const fetchcategory = async (id) => {
     return data
 }
 
-export const useCategore = (id) => {
+export const useCategory = (id) => {
     return useQuery({
         queryKey: ["category", id],
         queryFn: () => fetchcategory(id)

@@ -8,6 +8,7 @@ export const useMove = () => useContext(MoveContext);
 
 export default function MoveProvider({ children }) {
   const [move, setMove] = useState(false);
+  const [scrollParams, setScrollParams] = useState(null);
 
   const handleMove = () => {
     setMove((prev) => !prev);
@@ -15,7 +16,7 @@ export default function MoveProvider({ children }) {
   };
 
   return (
-    <MoveContext.Provider value={{ move, handleMove }}>
+    <MoveContext.Provider value={{ move, handleMove ,scrollParams,setScrollParams }}>
       {children}
     </MoveContext.Provider>
   );

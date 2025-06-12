@@ -41,7 +41,7 @@ const AboutUs = () => {
         }
     ]
     return (
-        <section className="min-h-screen overflow-hidden px-[50px] pt-[100px] pb-[40px] 
+        <section id="about" className="min-h-screen overflow-hidden px-[50px] pt-[100px] pb-[40px] 
             max-lg:px-[10px]
             max-sm:py-[80px] max-sm:pb-[10px]">
             <div className="w-full flex justify-between
