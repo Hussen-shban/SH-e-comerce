@@ -10,12 +10,12 @@ import { Link } from "react-scroll"
 const Hero = () => {
     let hasAnimated = false;
     // Handle mobile detection
-    const [isMobile, setIsMobile] = useState(false)
+    const [isMobile, setisMobile] = useState(false)
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 640px)")
-        setIsMobile(mediaQuery.matches)
+        const mediaQuery = window.matchMedia("(max-width: 1022px)")
+        setisMobile(mediaQuery.matches)
 
-        const handleResize = () => setIsMobile(mediaQuery.matches)
+        const handleResize = () => setisMobile(mediaQuery.matches)
         mediaQuery.addEventListener("change", handleResize)
 
         return () => mediaQuery.removeEventListener("change", handleResize)
@@ -177,7 +177,7 @@ const Hero = () => {
         )
 
         // Hide img2 if not mobile
-        if (!isMobile) {
+        
             gsap.fromTo(
                 img2ref.current,
                 {
@@ -191,7 +191,7 @@ const Hero = () => {
                     duration: 0.3
                 }
             )
-        }
+   
 
         // Hide img3 after animation
         gsap.fromTo(
@@ -266,7 +266,7 @@ const Hero = () => {
 
                         />
                         <Image
-                            src={isMobile ? hero1 : hero2}
+                            src={hero2}
                             alt="hero1"
                             placeholder="blur"
                             style={{ objectFit: "cover", height: "48%", filter: "grayscale(200%)", width: "100%", display: "none", borderRadius: "25px", overflow: "hidden" }}
@@ -275,7 +275,7 @@ const Hero = () => {
                     </div>
 
                     {/* Center image block (hidden on mobile) */}
-                    {!isMobile &&
+                  
                         <div ref={img2ref} className=" max-sm:hidden  w-[40%] rounded-[25px] overflow-hidden h-[100%] -translate-y-[150%] ">
                             <Image
                                 src={hero5}
@@ -284,7 +284,7 @@ const Hero = () => {
                                 style={{ objectFit: "cover", objectPosition: "center", height: "100%", width: "100%", }}
 
                             />
-                        </div>}
+                        </div>
 
                     {/* Right image block */}
                     <div ref={img3ref} className="w-[30%] rounded-[25px] overflow-hidden h-[100%] -translate-y-[150%] flex flex-col items-end justify-end

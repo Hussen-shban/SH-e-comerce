@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 
 import 'leaflet/dist/leaflet.css';
 import Nav from "../components/Nav";
-export default  function Contact() {
+export default function Contact() {
 
     // State for form inputs
     const [input, setInput] = useState({
@@ -26,12 +26,15 @@ export default  function Contact() {
                     L.DomUtil.get('map')._leaflet_id = null;
                 }
                 // Initialize map with default center and zoom
-                const map = L.map('map').setView([34.5138, 38.2765], 6);
+                const map = L.map('map', {
+                    zoomControl: false, // ❌ إخفاء أزرار الزوم
+                }).setView([34.5138, 38.2765], 6);
                 mapRef.current = map;
+
 
                 // Add OpenStreetMap tile layer
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; OpenStreetMap contributors',
+                    // attribution: '',
                     maxZoom: 19,
                     tileSize: 256,
                     detectRetina: true

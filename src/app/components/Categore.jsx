@@ -35,6 +35,18 @@ const Category = () => {
     }, [])
 
     useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === "#category") {
+        setTimeout(() => {
+            const element = document.getElementById("category");
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 300); // ننتظر قليلًا حتى يكون العنصر ظهر
+    }
+}, []);
+
+    useEffect(() => {
         if (category) {
             dispatch({ type: "SET_CATEGORY", payload: category });
 

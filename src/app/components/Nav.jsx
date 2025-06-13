@@ -26,11 +26,16 @@ const Nav = ({ color }) => {
     const { cart } = useCart()
     const router = useRouter();
     const handleGoToAbout = (path) => {
+        if (isMobile) {
+            handleopenmenu()
+
+        }
         router.push(`/#${path}`)
+
     }
 
-    function handleshopen (){
-        if(openmenu){
+    function handleshopen() {
+        if (openmenu) {
             handleopenmenu()
         }
     }
@@ -38,7 +43,7 @@ const Nav = ({ color }) => {
     // Handle mobile detection
     const [isMobile, setIsMobile] = useState(false)
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 640px)")
+        const mediaQuery = window.matchMedia("(max-width: 1022px)")
         setIsMobile(mediaQuery.matches)
 
         const handleResize = () => setIsMobile(mediaQuery.matches)
