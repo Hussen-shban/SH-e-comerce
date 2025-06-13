@@ -14,6 +14,22 @@ const AboutUs = () => {
             duration: 800,
         })
 
+
+
+    }, [])
+
+
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash === "#about") {
+            setTimeout(() => {
+                const element = document.getElementById("about");
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 300);
+        }
     }, [])
 
     const details = [
@@ -41,7 +57,7 @@ const AboutUs = () => {
         }
     ]
     return (
-        <section id="about" className="min-h-screen overflow-hidden px-[50px] pt-[100px] pb-[40px] 
+        <section id="about"  className="min-h-screen overflow-hidden px-[50px] pt-[100px] pb-[40px] 
             max-lg:px-[10px]
             max-sm:py-[80px] max-sm:pb-[10px]">
             <div className="w-full flex justify-between

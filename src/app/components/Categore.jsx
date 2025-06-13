@@ -44,17 +44,20 @@ const Category = () => {
             }
         }, 300); // ننتظر قليلًا حتى يكون العنصر ظهر
     }
-}, []);
+}, [category]);
 
-    useEffect(() => {
-        if (category) {
-            dispatch({ type: "SET_CATEGORY", payload: category });
 
-        }
-    }, [category]);
+
+
+    // useEffect(() => {
+    //     if (category) {
+    //         dispatch({ type: "SET_CATEGORY", payload: category });
+
+    //     }
+    // }, [category]);
 
     function handleCategoryClick(cat) {
-        router.push(`/?category=${encodeURIComponent(cat)}#category`);
+        // router.push(`/?category=${encodeURIComponent(cat)}#category`);
         dispatch({ type: "SET_CATEGORY", payload: cat });
     }
 
@@ -248,3 +251,5 @@ const Category = () => {
 }
 
 export default Category
+
+

@@ -25,9 +25,14 @@ const Nav = ({ color }) => {
     const rightref = useRef(null)
     const { cart } = useCart()
     const router = useRouter();
-    const handleGoToAbout = (path) => {
+    const handleGoTo = (path) => {
         if (isMobile) {
             handleopenmenu()
+
+        }
+
+        if (!isMobile & path==="category") {
+            handleopen()
 
         }
         router.push(`/#${path}`)
@@ -52,14 +57,7 @@ const Nav = ({ color }) => {
         return () => mediaQuery.removeEventListener("change", handleResize)
     }, [])
 
-    function handleGoToCategory(category) {
-        router.push(`/?category=${encodeURIComponent(category)}#category`);
-        if (isMobile) {
-            handleopenmenu()
 
-        }
-        handleleft()
-    }
     const [cartQuantity, setCartQuantity] = useState(0)
     useEffect(() => {
 
@@ -176,19 +174,19 @@ const Nav = ({ color }) => {
                             <div ref={arrowref}><ARROWNAV /></div>
                             <div ref={Categoreref} onClick={(e) => e.stopPropagation()} className="absolute z-50 left-[-20px] translate-y-[-105%] bgcategore">
                                 <ul>
-                                    <li onClick={() => handleGoToCategory("all")}>all</li>
+                                    <li onClick={() => handleGoTo("category")}>all</li>
 
 
-                                    <li onClick={() => handleGoToCategory("women's clothing")}>women's clothing</li>
-
-
-
-                                    <li onClick={() => handleGoToCategory("men's clothing")}>men's clothing</li>
+                                    <li onClick={() => handleGoTo("category")}>women's clothing</li>
 
 
 
+                                    <li onClick={() => handleGoTo("category")}>men's clothing</li>
 
-                                    <li onClick={() => handleGoToCategory("jewelery")}>jewelery</li>
+
+
+
+                                    <li onClick={() => handleGoTo("category")}>jewelery</li>
 
 
 
@@ -198,13 +196,13 @@ const Nav = ({ color }) => {
                         <Link href="/Find-a-Store"><li className="cursor-pointer lihover">Find a Store</li></Link>
                         {/* <ScrollLink to="about" smooth={true} duration={500}> */}
 
-                        <li onClick={() => handleGoToAbout("about")} className="cursor-pointer lihover">About</li>
+                        <li onClick={() => handleGoTo("about")} className="cursor-pointer lihover">About</li>
 
                         {/* </ScrollLink> */}
                     </ul>
                 </div>
                 <div className="flex items-center justify-center gap-5">
-                    <div className="cursor-pointer border-white border-[1px] rounded-full p-3"><SEARCH /></div>
+                    {/* <div className="cursor-pointer border-white border-[1px] rounded-full p-3"><SEARCH /></div> */}
                     <Link href="/cart" className=" relative cursor-pointer border-white border-[1px] rounded-full p-3">
                         <div className=" absolute w-5 h-5 rounded-full flex items-center justify-center bg-red-700 -top-1 -right-1">
                             <p className="text-white text-[12px]">{cartQuantity}</p>
@@ -261,7 +259,7 @@ const Nav = ({ color }) => {
 
                                     </li>
 
-                                    <li onClick={() => handleGoToAbout("about")} className="flex cursor-pointer items-center justify-start gap-2">
+                                    <li onClick={() => handleGoTo("about")} className="flex cursor-pointer items-center justify-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#fff" d="M11.5 16.5h1V11h-1zm.5-6.923q.262 0 .439-.177t.176-.439t-.177-.438T12 8.346t-.438.177t-.177.439t.177.438t.438.177M12.003 21q-1.867 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709M12 20q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" /></svg>
                                         <p>About Us</p>
                                     </li>
@@ -299,24 +297,24 @@ const Nav = ({ color }) => {
                                     </li>
 
 
-                                    <li onClick={() => handleGoToCategory("all")} className="flex cursor-pointer items-center justify-start gap-2">
+                                    <li onClick={() => handleGoTo("category")} className="flex cursor-pointer items-center justify-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#fff" d="M6.5 11L12 2l5.5 9zm11 11q-1.875 0-3.187-1.312T13 17.5t1.313-3.187T17.5 13t3.188 1.313T22 17.5t-1.312 3.188T17.5 22M3 21.5v-8h8v8z" /></svg>
                                         <p> all</p>
                                     </li>
 
-                                    <li onClick={() => handleGoToCategory("women's clothing")} className="flex cursor-pointer items-center justify-start gap-2">
+                                    <li onClick={() => handleGoTo("category")} className="flex cursor-pointer items-center justify-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M18 21H6s1.66-4.825 1.5-8c-.1-1.989-1.524-3.079-1-5c.23-.842 1-2 1-2S9 7 12 7s4.5-1 4.5-1s.77 1.158 1 2c.524 1.921-.9 3.011-1 5c-.16 3.175 1.5 8 1.5 8M7.5 6V3m9 3V3" /></svg>
                                         <p>women's clothing</p>
                                     </li>
 
-                                    <li onClick={() => handleGoToCategory("men's clothing")} className="flex cursor-pointer items-center justify-start gap-2">
+                                    <li onClick={() => handleGoTo("category")} className="flex cursor-pointer items-center justify-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48"><g fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"><path d="M6 10L18 4H30L42 10L40 35H34V44H24H14V35H8L6 10Z" /><path d="M14 35L14 20" /><path d="M34 35V20" /><path d="M24 10C27.3137 10 30 7.31371 30 4H18C18 7.31371 20.6863 10 24 10Z" /></g></svg>
                                         <p>men's clothing</p>
                                     </li>
 
 
 
-                                    <li onClick={() => handleGoToCategory("jewelery")} className="flex cursor-pointer items-center justify-start gap-2">
+                                    <li onClick={() => handleGoTo("category")} className="flex cursor-pointer items-center justify-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#fff" d="M12 10L8 4.4L9.6 2h4.8L16 4.4zm3.5-3.2l-1.2 1.7c2.2.9 3.7 3 3.7 5.5a6 6 0 0 1-6 6a6 6 0 0 1-6-6c0-2.5 1.5-4.6 3.7-5.5L8.5 6.8C5.8 8.1 4 10.8 4 14a8 8 0 0 0 8 8a8 8 0 0 0 8-8c0-3.2-1.8-5.9-4.5-7.2" /></svg>
                                         <p>jewelery</p>
                                     </li>
