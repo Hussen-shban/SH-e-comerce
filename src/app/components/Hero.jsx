@@ -8,7 +8,7 @@ import { Typewriter } from "react-simple-typewriter"
 import { Link } from "react-scroll"
 
 const Hero = () => {
-
+    let hasAnimated = false;
     // Handle mobile detection
     const [isMobile, setIsMobile] = useState(false)
     useEffect(() => {
@@ -37,8 +37,24 @@ const Hero = () => {
         return () => clearTimeout(timer)
     }, [])
 
-    // GSAP Animations
+    const [showText1, setShowText1] = useState(false);
     useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowText1(true)
+        }, 1000)
+        return () => clearTimeout(timer)
+    }, [])
+
+    // GSAP Animations
+
+
+    useEffect(() => {
+
+        if (hasAnimated) return;
+
+      
+        hasAnimated = true;
+
         const images = img1ref.current.querySelectorAll("img");
         const images1 = img3ref.current.querySelectorAll("img");
 
@@ -218,6 +234,10 @@ const Hero = () => {
             })
 
 
+
+
+
+
     }, [])
 
     return (
@@ -231,7 +251,7 @@ const Hero = () => {
              ">
 
                 {/* Initial 3-image layout animation section */}
-                <div className="flex items-center justify-between gap-5 h-[85%]  relative
+                <div className="max-sm:hidden flex items-center justify-between gap-5 h-[85%]  relative
                 max-sm:h-[85%] max-sm:flex-grow max-sm:gap-2 max-sm:justify-center w-full
                 ">
                     {/* Left image block */}
@@ -292,7 +312,7 @@ const Hero = () => {
                         <div className="w-full h-full relative">
 
                             <Image
-                                src={isMobile ? hero3 : hero6}
+                                src={hero6}
                                 alt="main hero" placeholder="blur"
                                 style={{ objectFit: "cover", height: "100%", width: "100%" }}
                             />
@@ -300,6 +320,41 @@ const Hero = () => {
                             <div className=" text-white cursor-pointer max-sm:w-[300px]  absolute top-[50%] left-[10%] text-[24px] font-[200] ">
 
                                 {showText && (
+                                    <Typewriter
+                                        words={['ONLY THE FINEST MOST FLAWLESS DID']}
+                                        loop={1}
+                                        cursor
+                                        cursorStyle=''
+                                        typeSpeed={40}
+                                        deleteSpeed={50}
+                                        delaySpeed={1000}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className=" sm:hidden flex items-center justify-between gap-5 h-[85%]  relative
+                max-sm:h-[85%] max-sm:flex-grow max-sm:gap-2 max-sm:justify-center w-full
+                ">
+
+
+
+
+                    {/* Final animated image with text */}
+                    <div className="w-[100%] rounded-[25px] overflow-hidden h-[100%] z-10     ">
+                        <div className="w-full h-full relative">
+
+                            <Image
+                                src={hero3}
+                                alt="main hero" placeholder="blur"
+                                style={{ objectFit: "cover", height: "100%", width: "100%" }}
+                            />
+
+                            <div className=" text-white cursor-pointer max-sm:w-[300px]  absolute top-[50%] left-[10%] text-[24px] font-[200] ">
+
+                                {showText1 && (
                                     <Typewriter
                                         words={['ONLY THE FINEST MOST FLAWLESS DID']}
                                         loop={1}

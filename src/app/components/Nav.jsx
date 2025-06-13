@@ -29,6 +29,12 @@ const Nav = ({ color }) => {
         router.push(`/#${path}`)
     }
 
+    function handleshopen (){
+        if(openmenu){
+            handleopenmenu()
+        }
+    }
+
     // Handle mobile detection
     const [isMobile, setIsMobile] = useState(false)
     useEffect(() => {
@@ -211,7 +217,7 @@ const Nav = ({ color }) => {
             {/* Mobile Navbar */}
             <nav ref={nav1ref} className={`  ${color ? "bg-[#111111]" : ""} z-[1000] lg:hidden bgnav fixed  flex gap-3 items-center justify-between py-[0px] px-[50px] w-full h-[90px] max-lg:px-[10px] max-sm:h-[80px] translate-y-[-100px]`}>
                 <Link href="/"
-                    onClick={handleopenmenu}
+                    onClick={handleshopen}
                 >
 
                     <Image src={LOGOBLACK} width={70} height={70} alt="LOGO" className="rounded-[20px] bg-white cursor-pointer max-sm:w-[60px]" />

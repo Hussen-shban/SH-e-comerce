@@ -6,7 +6,7 @@ export default function Loading() {
     return (
 
 
-        <div className="loader">
+        <div className="loader flex items-center justify-center h-screen">
             <div className="truckWrapper">
                 <div className="truckBody">
                     <svg
