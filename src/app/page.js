@@ -9,6 +9,7 @@ export default function Home() {
     <div className="bg-[#111111]  ">
       <Nav />
       <Hero />
+    
       <Category />
       <AboutUs />
       <Footer />

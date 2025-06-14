@@ -21,7 +21,8 @@
     "react-dom": "^19.0.0",
     "react-scroll": "^1.9.3",
     "react-simple-typewriter": "^5.0.1",
-    "sweetalert2": "^11.22.0"
+    "sweetalert2": "^11.22.0",
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

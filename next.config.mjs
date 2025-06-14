@@ -2,7 +2,7 @@
 const nextConfig = {
 
     images: {
-    domains: ['fakestoreapi.com'], // ← أضف هذا
+    domains: ['fakestoreapi.com', 'lh3.googleusercontent.com'], // ← أضف هذا
   },
   webpack(config) {
     config.module.rules.push({

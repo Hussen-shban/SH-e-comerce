@@ -69,7 +69,7 @@ const Nav = ({ color }) => {
 
     // Check localStorage for user data
     useEffect(() => {
-        if (JSON.parse(localStorage.getItem("userdata"))?.idToken) {
+        if (JSON.parse(localStorage.getItem("userdata"))) {
             setAuthentication(true)
         } else {
             setAuthentication(false)

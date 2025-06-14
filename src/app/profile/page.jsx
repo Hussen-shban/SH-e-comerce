@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { hero1, hero2, hero3, people1 } from "../assets/img"
+import { hero2 } from "../assets/img"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Swal from "sweetalert2"
@@ -8,6 +8,16 @@ import Nav from "../components/Nav"
 import { useCart } from "../context/Cart"
 
 const Profile = () => {
+
+    const { cart } = useCart();
+    const [quantity, setQuantity] = useState(0);
+
+    useEffect(() => {
+        if (cart && Array.isArray(cart)) {
+            const total = cart.reduce((acc, item) => acc + item.quantity, 0);
+            setQuantity(total);
+        }
+    }, [cart]);
 
     // Array of selectable background colors
     const arraycolor = [
@@ -91,12 +101,13 @@ const Profile = () => {
                                     <Image src={
                                         profiledata.img
                                             ?
-                                            profiledata.img
+                                            profiledata.img.replace(/=s\d+-c$/, "=s600-c")
                                             :
                                             hero2}
 
-                                        width={130}
-                                        height={130}
+                                        width={200}
+                                        height={200}
+                                       quality={100}
 
                                         alt="sdasd"
                                         className=" object-cover w-[130px] border-[2px] border-white h-[130px]"
@@ -124,7 +135,7 @@ const Profile = () => {
                         </div>
 
                         <div className="flex flex-col items-center justify-center">
-                            <p>0</p>
+                            <p>{quantity}</p>
                             <p>Item In Cart</p>
                         </div>
 

@@ -70,7 +70,7 @@ const SignUp = () => {
                 "userdata",
                 JSON.stringify({
                     ...data,
-                   name:dataauth.username
+                    name: dataauth.username
                 })
             ); router.replace("/")
 
@@ -103,7 +103,13 @@ const SignUp = () => {
 
             if (user && user.emailVerified !== false) {
                 console.log("تم تسجيل الدخول بـ Google", user);
-                localStorage.setItem("userdata", JSON.stringify(user));
+
+                const userData = {
+                    uid: user.uid,
+                    email: user.email,
+                    name: user.displayName,   
+                    img: user.photoURL
+                }; localStorage.setItem("userdata", JSON.stringify(userData));
                 router.replace("/");
             } else {
                 seterrormessage("Failed to retrieve user data.")

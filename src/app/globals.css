@@ -589,6 +589,7 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #111111;
 }
 
 .truckWrapper {
@@ -699,3 +700,4 @@ html {
 .leaflet-control-attribution {
   display: none !important;
 }
+
