@@ -130,7 +130,6 @@ export default function Contact() {
 
     return (
         <div>
-            <Nav />
             <section className="bg-[#111111] overflow-hidden pt-[100px] pb-[40px]  max-sm:py-[80px] max-sm:pb-[10px]">
 
                 <div>

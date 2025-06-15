@@ -128,7 +128,7 @@ export default function Cart() {
 
     return (
         <div>
-            <Nav color={true} />
+          
 
             {cart.length !== 0 ? (
                 <div className="  flex justify-around

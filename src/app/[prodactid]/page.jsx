@@ -8,6 +8,9 @@ import { useCart } from "../context/Cart"
 import Nav from "../components/Nav"
 import Swal from "sweetalert2"
 
+
+
+
 const Prodact = () => {
     const params = useParams()
     const id = params?.prodactid
@@ -69,7 +72,7 @@ const Prodact = () => {
     return (
 
         <div>
-            <Nav />
+           
             <div className="min-h-screen  overscroll-y-auto px-[50px] pt-[120px] pb-[40px] 
             max-lg:px-[10px] text-white bg-[#111111] 
             max-sm:py-[80px] max-sm:pb-[10px]">

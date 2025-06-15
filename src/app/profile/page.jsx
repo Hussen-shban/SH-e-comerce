@@ -82,7 +82,7 @@ const Profile = () => {
 
     return (
         <>
-            <Nav />
+       
 
             <section className="bg-[#111111] text-white flex sm:items-center max-sm:items-start justify-center
             min-h-screen overflow-hidden px-[50px] pt-[100px] pb-[40px] 
