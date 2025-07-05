@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-    images: {
-    domains: ['fakestoreapi.com', 'lh3.googleusercontent.com'], // ← أضف هذا
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'fakestoreapi.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

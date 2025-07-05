@@ -1,5 +1,5 @@
 "use client"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { useCategory } from "../Reactquery/reactqueryhook"
 import Image from "next/image"
 import "aos/dist/aos.css"
@@ -16,6 +16,7 @@ const Prodact = () => {
     const id = params?.prodactid
     const { data: product = [], isLoading } = useCategory(id)
     const [quantityitem, setquantityitem] = useState(1)
+    const router = useRouter()
 
 
     const { cart, AddToCart } = useCart()
@@ -72,7 +73,7 @@ const Prodact = () => {
     return (
 
         <div>
-           
+
             <div className="min-h-screen  overscroll-y-auto px-[50px] pt-[120px] pb-[40px] 
             max-lg:px-[10px] text-white bg-[#111111] 
             max-sm:py-[80px] max-sm:pb-[10px]">
